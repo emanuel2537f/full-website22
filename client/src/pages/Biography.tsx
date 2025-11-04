@@ -1,4 +1,4 @@
-import profileImage from "@assets/generated_images/Artist_profile_portrait_ad00c8be.png";
+const profileImage2 = "/images/AlbiYzo.png";
 import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Biography() {
@@ -17,7 +17,7 @@ export default function Biography() {
         <div className="grid md:grid-cols-3 gap-12 mb-20">
           <div className="md:col-span-1">
             <img
-              src={profileImage}
+              src="/images/AlbiYzo.png"
               alt="Albi Yzo"
               className="w-full rounded-md"
               data-testid="img-profile"
