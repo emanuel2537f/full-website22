@@ -1,17 +1,20 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/lib/LanguageContext";
+import LanguageToggle from "./LanguageToggle";
 
 export default function Navbar() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navLinks = [
-    { path: "/", label: "Home" },
-    { path: "/portfolio", label: "Portfolio" },
-    { path: "/biography", label: "Biography" },
-    { path: "/exhibitions", label: "Exhibitions" },
-    { path: "/contact", label: "Contact" },
+    { path: "/", label: "nav.home" },
+    { path: "/portfolio", label: "nav.portfolio" },
+    { path: "/biography", label: "nav.biography" },
+    { path: "/exhibitions", label: "nav.exhibitions" },
+    { path: "/contact", label: "nav.contact" },
   ];
 
   return (
@@ -26,7 +29,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link key={link.path} href={link.path} data-testid={`link-nav-${link.label.toLowerCase()}`}>
+              <Link key={link.path} href={link.path} data-testid={`link-nav-${t(link.label).toLowerCase()}`}>
                 <span
                   className={`text-sm font-sans tracking-wide cursor-pointer transition-all relative pb-1 ${
                     location === link.path
@@ -34,10 +37,11 @@ export default function Navbar() {
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  {link.label}
+                  {t(link.label)}
                 </span>
               </Link>
             ))}
+            <LanguageToggle />
           </div>
 
           <button
@@ -54,7 +58,7 @@ export default function Navbar() {
         <div className="md:hidden bg-background border-t border-border">
           <div className="px-6 py-4 space-y-4">
             {navLinks.map((link) => (
-              <Link key={link.path} href={link.path} data-testid={`link-mobile-${link.label.toLowerCase()}`}>
+              <Link key={link.path} href={link.path} data-testid={`link-mobile-${t(link.label).toLowerCase()}`}>
                 <div
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block py-2 px-4 rounded-md cursor-pointer transition-colors ${
@@ -63,10 +67,13 @@ export default function Navbar() {
                       : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                   }`}
                 >
-                  {link.label}
+                  {t(link.label)}
                 </div>
               </Link>
             ))}
+            <div className="pt-2 flex justify-center">
+              <LanguageToggle />
+            </div>
           </div>
         </div>
       )}

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import heroBackground from "@assets/generated_images/Hero_background_gradient_0da13810.png";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -33,7 +35,7 @@ export default function Home() {
             className="text-xl md:text-2xl text-white/90 font-light tracking-wide"
             data-testid="text-hero-subtitle"
           >
-            Visual Artist – Tirana, Albania
+            {t("home.subtitle")}
           </p>
         </div>
       </div>
@@ -43,27 +45,20 @@ export default function Home() {
           className="text-center font-serif text-2xl md:text-3xl italic leading-relaxed text-foreground/90"
           data-testid="text-quote"
         >
-          "To create in our contemporary era means to preserve the essence of
-          oneself."
+          "{t("home.quote")}"
         </blockquote>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
         <div className="bg-muted/30 rounded-md p-12 md:p-16">
           <p className="font-sans text-lg leading-relaxed mb-6 text-muted-foreground">
-            To create in our contemporary era, according to my opinion it means
-            to be committed in selecting different forms of expressing but always
-            preserving the essence of oneself, so that his energy is distributed
-            at the right time and space.
+            {t("home.statement1")}
           </p>
           <p className="font-sans text-lg leading-relaxed mb-6 text-muted-foreground">
-            Art to me is the ability to produce artworks, that society will put
-            in the service of its aesthetic and cultural improvement.
+            {t("home.statement2")}
           </p>
           <p className="font-sans text-lg leading-relaxed text-muted-foreground">
-            In my creations is clearly seen my interest in beauty, my ontological
-            search for the innovation, the undeniable heterogeneity and the love
-            for the sublime.
+            {t("home.statement3")}
           </p>
         </div>
       </div>

@@ -1,4 +1,7 @@
+import { useLanguage } from "@/lib/LanguageContext";
+
 export default function Exhibitions() {
+  const { t } = useLanguage();
   const personalExhibitions = [
     {
       year: "2017",
@@ -82,15 +85,15 @@ export default function Exhibitions() {
           className="font-serif text-5xl md:text-6xl font-light mb-4 text-center"
           data-testid="text-page-title"
         >
-          Exhibitions
+          {t("exhibitions.title")}
         </h1>
         <p className="text-center text-muted-foreground mb-20 text-lg">
-          Selected exhibitions and activities
+          {t("exhibitions.subtitle")}
         </p>
 
         <section className="mb-20">
           <h2 className="font-serif text-3xl md:text-4xl font-light mb-12">
-            Personal Exhibitions
+            {t("exhibitions.personal")}
           </h2>
           <div className="space-y-8">
             {personalExhibitions.map((exhibition, index) => (
@@ -116,7 +119,7 @@ export default function Exhibitions() {
 
         <section>
           <h2 className="font-serif text-3xl md:text-4xl font-light mb-12">
-            Collective Exhibitions
+            {t("exhibitions.collective")}
           </h2>
           <div className="space-y-8">
             {collectiveExhibitions.map((exhibition, index) => (

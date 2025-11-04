@@ -3,6 +3,7 @@ import ArtworkCard from "@/components/ArtworkCard";
 import Lightbox from "@/components/Lightbox";
 import placeholder1 from "@assets/generated_images/Artwork_placeholder_1_6d2c0c01.png";
 import placeholder2 from "@assets/generated_images/Artwork_placeholder_2_8cf1bab9.png";
+import { useLanguage } from "@/lib/LanguageContext";
 
 interface Artwork {
   id: number;
@@ -16,6 +17,7 @@ interface Artwork {
 export default function Portfolio() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(0);
+  const { t } = useLanguage();
 
   const artworks: Artwork[] = [
     {
@@ -196,18 +198,18 @@ export default function Portfolio() {
           className="font-serif text-5xl md:text-6xl font-light mb-4 text-center"
           data-testid="text-page-title"
         >
-          Portfolio
+          {t("portfolio.title")}
         </h1>
         <p className="text-center text-muted-foreground mb-20 text-lg">
-          Selected works 2012–2024
+          {t("portfolio.subtitle")}
         </p>
 
         <section className="mb-24">
           <div className="bg-muted/30 py-6 px-8 rounded-md mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-light" data-testid="text-section-title">
-              School Period (2012–2014)
+              {t("portfolio.school")}
             </h2>
-            <p className="text-muted-foreground mt-2">Selected works</p>
+            <p className="text-muted-foreground mt-2">{t("portfolio.school.subtitle")}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {schoolPeriod.map((artwork, idx) => (
@@ -226,13 +228,10 @@ export default function Portfolio() {
         <section className="mb-24">
           <div className="bg-muted/30 py-6 px-8 rounded-md mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-light" data-testid="text-section-title">
-              Games Series (2019)
+              {t("portfolio.games")}
             </h2>
             <p className="text-muted-foreground mt-3 max-w-3xl">
-              This cycle of paintings is about 7 final works realized in the
-              technique of oil painting on fabric, where images, feelings and
-              experiences of the games that I spent in my childhood are
-              symbolically presented.
+              {t("portfolio.games.desc")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -252,12 +251,10 @@ export default function Portfolio() {
         <section>
           <div className="bg-muted/30 py-6 px-8 rounded-md mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-light" data-testid="text-section-title">
-              Hypo-Crisis Series (2020–2024)
+              {t("portfolio.hypocrisis")}
             </h2>
             <p className="text-muted-foreground mt-3 max-w-3xl">
-              This series of paintings began in 2020 and was inspired by the
-              daily life, architecture, socio-political and cultural events of
-              our time and especially of my country.
+              {t("portfolio.hypocrisis.desc")}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">

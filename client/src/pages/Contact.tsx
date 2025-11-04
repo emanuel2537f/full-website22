@@ -1,8 +1,10 @@
 import { Mail, Phone } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,7 +14,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    alert("Thank you for your message! (This is a visual demo - no data is sent)");
+    alert(t("contact.success"));
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -23,20 +25,20 @@ export default function Contact() {
           className="font-serif text-5xl md:text-6xl font-light mb-4 text-center"
           data-testid="text-page-title"
         >
-          Contact
+          {t("contact.title")}
         </h1>
         <p className="text-center text-muted-foreground mb-20 text-lg">
-          Get in touch
+          {t("contact.subtitle")}
         </p>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="font-serif text-2xl mb-8">Contact Information</h2>
+            <h2 className="font-serif text-2xl mb-8">{t("contact.info")}</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <Mail className="mt-1 text-primary" size={24} />
                 <div>
-                  <p className="font-semibold mb-1">Email</p>
+                  <p className="font-semibold mb-1">{t("contact.email")}</p>
                   <a
                     href="mailto:albiyzo@gmail.com"
                     className="text-muted-foreground hover:text-foreground transition-colors"
@@ -49,7 +51,7 @@ export default function Contact() {
               <div className="flex items-start gap-4">
                 <Phone className="mt-1 text-primary" size={24} />
                 <div>
-                  <p className="font-semibold mb-1">Phone</p>
+                  <p className="font-semibold mb-1">{t("contact.phone")}</p>
                   <a
                     href="tel:+355692573658"
                     className="text-muted-foreground hover:text-foreground transition-colors"
@@ -62,22 +64,22 @@ export default function Contact() {
             </div>
 
             <div className="mt-12 bg-muted/30 rounded-md p-8">
-              <h3 className="font-serif text-xl mb-4">Location</h3>
+              <h3 className="font-serif text-xl mb-4">{t("contact.location")}</h3>
               <p className="text-muted-foreground">
-                Tirana, Albania
+                {t("contact.location.value")}
               </p>
             </div>
           </div>
 
           <div>
-            <h2 className="font-serif text-2xl mb-8">Send a Message</h2>
+            <h2 className="font-serif text-2xl mb-8">{t("contact.form")}</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
                 >
-                  Name
+                  {t("contact.name")}
                 </label>
                 <input
                   type="text"
@@ -87,7 +89,7 @@ export default function Contact() {
                     setFormData({ ...formData, name: e.target.value })
                   }
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
-                  placeholder="Your name"
+                  placeholder={t("contact.name.placeholder")}
                   required
                   data-testid="input-name"
                 />
@@ -97,7 +99,7 @@ export default function Contact() {
                   htmlFor="email"
                   className="block text-sm font-medium mb-2"
                 >
-                  Email
+                  {t("contact.email")}
                 </label>
                 <input
                   type="email"
@@ -107,7 +109,7 @@ export default function Contact() {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
-                  placeholder="your.email@example.com"
+                  placeholder={t("contact.email.placeholder")}
                   required
                   data-testid="input-email"
                 />
@@ -117,7 +119,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-sm font-medium mb-2"
                 >
-                  Message
+                  {t("contact.message")}
                 </label>
                 <textarea
                   id="message"
@@ -127,7 +129,7 @@ export default function Contact() {
                   }
                   rows={6}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow resize-none"
-                  placeholder="Your message..."
+                  placeholder={t("contact.message.placeholder")}
                   required
                   data-testid="input-message"
                 />
@@ -137,7 +139,7 @@ export default function Contact() {
                 className="w-full"
                 data-testid="button-submit"
               >
-                Send Message
+                {t("contact.submit")}
               </Button>
             </form>
           </div>
