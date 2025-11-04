@@ -25,6 +25,8 @@ const translations = {
     "home.statement1": "To create in our contemporary era, according to my opinion it means to be committed in selecting different forms of expressing but always preserving the essence of oneself, so that his energy is distributed at the right time and space.",
     "home.statement2": "Art to me is the ability to produce artworks, that society will put in the service of its aesthetic and cultural improvement.",
     "home.statement3": "In my creations is clearly seen my interest in beauty, my ontological search for the innovation, the undeniable heterogeneity and the love for the sublime.",
+    "home.preview.title": "Portfolio Preview",
+    "home.preview.button": "View Full Portfolio",
     
     // Portfolio
     "portfolio.title": "Portfolio",
@@ -91,6 +93,8 @@ const translations = {
     "home.statement1": "Créer à notre époque contemporaine, selon mon opinion, signifie s'engager à sélectionner différentes formes d'expression tout en préservant toujours l'essence de soi-même, afin que son énergie soit distribuée au bon moment et au bon endroit.",
     "home.statement2": "L'art pour moi est la capacité de produire des œuvres d'art que la société mettra au service de son amélioration esthétique et culturelle.",
     "home.statement3": "Dans mes créations, on voit clairement mon intérêt pour la beauté, ma recherche ontologique de l'innovation, l'hétérogénéité indéniable et l'amour du sublime.",
+    "home.preview.title": "Aperçu du Portfolio",
+    "home.preview.button": "Voir le Portfolio Complet",
     
     // Portfolio
     "portfolio.title": "Portfolio",
