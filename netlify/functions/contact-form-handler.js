@@ -25,7 +25,7 @@ exports.handler = async function(event, context) {
   try {
     await transporter.sendMail({
       from: email,
-      to: 'your@email.com', // change to your receiving email
+      to: 'emanuelkerellari@gmail.com', // vendos emailin tënd për testim
       subject: `Contact Form Submission from ${name}`,
       text: message,
     });
