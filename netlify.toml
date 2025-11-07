@@ -1,6 +1,6 @@
 [build]
   functions = "netlify/functions"
-  publish = "client"
+  publish = "dist/public"
 
 # Optional: Redirect API calls to Netlify Functions
 [[redirects]]
