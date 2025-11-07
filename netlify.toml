@@ -1,0 +1,9 @@
+[build]
+  functions = "netlify/functions"
+  publish = "client"
+
+# Optional: Redirect API calls to Netlify Functions
+[[redirects]]
+  from = "/api/contact-form-handler"
+  to = "/.netlify/functions/contact-form-handler"
+  status = 200

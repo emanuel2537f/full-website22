@@ -49,25 +49,6 @@ export default function Biography() {
           </div>
         </div>
 
-        <div className="bg-muted/30 rounded-md p-12 md:p-16">
-          <h2 className="font-serif text-3xl mb-8 text-center">
-            {t("bio.statement.title")}
-          </h2>
-          <div className="space-y-6 font-sans text-lg leading-relaxed text-muted-foreground" data-testid="text-statement">
-            <p>
-              {t("bio.statement1")}
-            </p>
-            <p>
-              {t("bio.statement2")}
-            </p>
-            <p>
-              {t("bio.statement3")}
-            </p>
-            <p>
-              {t("bio.statement4")}
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );

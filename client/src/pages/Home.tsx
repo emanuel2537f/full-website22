@@ -1,64 +1,96 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import heroBackground from "@assets/generated_images/Hero_background_gradient_0da13810.png";
+// import heroBackground from "@assets/generated_images/Hero_background_gradient_0da13810.png";
+const heroImages = [
+  "/home-image/SmartSelect_20220805-021655_Video%20Player.jpg",
+  "/home-image/SmartSelect_20220915-093836_Gallery.jpg",
+];
 import placeholder1 from "@assets/generated_images/Artwork_placeholder_1_6d2c0c01.png";
 import placeholder2 from "@assets/generated_images/Artwork_placeholder_2_8cf1bab9.png";
 import { useLanguage } from "@/lib/LanguageContext";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [heroIndex, setHeroIndex] = useState(0);
+  const [fade, setFade] = useState(true);
   const { t } = useLanguage();
 
   useEffect(() => {
-    setIsVisible(true);
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setHeroIndex((prev) => (prev + 1) % heroImages.length);
+        setFade(true);
+      }, 500); // fade out duration
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
 
   const featuredArtworks = [
     {
-      id: 1,
-      title: "Adam and Eve",
-      description: "Oil on canvas, 170 x 130 cm",
-      image: "/images/AdamandEve.png",
-      year: "2017",
+      id: 25,
+      title: "Scream in theatre",
+      year: "2020",
+      description: "Oil on canvas, 100 x 80 cm",
+      image: "/images/Screamintheatre.png",
+      period: "hypo-crisis"
     },
     {
-      id: 2,
+      id: 26,
+      title: "The Atlase",
+      year: "2021",
+      description: "Oil on canvas, 110 x 200 cm",
+      image: "/images/TheAtlase.png",
+      period: "hypo-crisis"
+    },
+    {
+      id: 27,
       title: "Vicious dance",
+      year: "2021",
       description: "Oil on canvas, 130 x 160 cm",
       image: "/images/Viciousdance.png",
-      year: "2021",
+      period: "hypo-crisis"
     },
     {
-      id: 3,
-      title: "Games, Pathos",
-      description: "Oil on canvas, 102 x 93 cm",
-      image: "/images/Games,Pathos.png",
-      year: "2019",
-    },
-    {
-      id: 4,
-      title: "Self-Portrait",
-      description: "Oil on canvas, 90 x 70 cm",
-      image: "/images/Self-Portrait.png",
-      year: "2013",
+      id: 28,
+      title: "Apocatastasis",
+      year: "2022",
+      description: "Oil on canvas, 130 x 160 cm",
+      image: "/images/Apocatastasis.png",
+      period: "hypo-crisis"
     },
   ];
 
   return (
     <div className="min-h-screen">
-      <div
-        className="relative h-screen flex items-center justify-center"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${heroBackground})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      {/* HERO SECTION */}
+      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+        {heroImages.map((img, idx) => (
+          <div
+            key={img}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${heroIndex === idx && fade ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${img})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundColor: '#222' // fallback color for debugging
+            }}
+          >
+            {/* Fallback img for debugging */}
+            <img
+              src={img}
+              alt="hero"
+              style={{ display: 'none' }}
+              onError={() => console.error('Image failed to load:', img)}
+            />
+          </div>
+        ))}
         <div
           className={`text-center px-6 transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          } z-20 relative`}
         >
           <h1
             className="font-serif text-6xl md:text-8xl font-light text-white mb-4 tracking-wider"
@@ -70,22 +102,14 @@ export default function Home() {
             className="text-xl md:text-2xl text-white/90 font-light tracking-wide"
             data-testid="text-hero-subtitle"
           >
-            {t("home.subtitle")}
+            Visual Artist
           </p>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 py-20">
-        <blockquote
-          className="text-center font-serif text-2xl md:text-3xl italic leading-relaxed text-foreground/90"
-          data-testid="text-quote"
-        >
-          "{t("home.quote")}"
-        </blockquote>
-      </div>
-
+      {/* STATEMENT SECTION */}
       <div className="max-w-6xl mx-auto px-6 lg:px-8 py-12">
-        <div className="bg-muted/30 rounded-md p-10 md:p-14">
+        <div className="bg-muted/30 rounded-md p-10 md:p-14 text-justify">
           <p className="font-sans text-lg leading-relaxed mb-6 text-muted-foreground">
             {t("home.statement1")}
           </p>
@@ -98,6 +122,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* FEATURED ARTWORKS SECTION */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <h2 className="font-serif text-3xl md:text-4xl font-light text-center mb-12" data-testid="text-preview-title">
           {t("home.preview.title")}
@@ -131,17 +156,21 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="flex justify-center">
-          <Link href="/portfolio">
-            <Button
-              size="lg"
-              variant="default"
-              className="px-8"
-              data-testid="button-view-portfolio"
-            >
-              {t("home.preview.button")}
-            </Button>
-          </Link>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-2">
+          <a
+            href="/portfolio"
+            className="inline-block bg-primary text-white font-medium px-6 py-2 rounded-md shadow hover:bg-primary/90 transition-colors text-base sm:text-lg w-full sm:w-auto text-center"
+            data-testid="button-view-portfolio"
+          >
+            {t("home.preview.button")}
+          </a>
+          <a
+            href="/2025 Yzo_Albi_Portfolio-eng.pdf"
+            download
+            className="inline-block bg-primary text-white font-medium px-6 py-2 rounded-md shadow hover:bg-primary/90 transition-colors text-base sm:text-lg w-full sm:w-auto text-center"
+          >
+            Download Portfolio (PDF)
+          </a>
         </div>
       </div>
     </div>

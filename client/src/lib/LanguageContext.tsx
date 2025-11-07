@@ -36,7 +36,16 @@ const translations = {
     "portfolio.games": "Games Series (2019)",
     "portfolio.games.desc": "This cycle of paintings is about 7 final works realized in the technique of oil painting on fabric, where images, feelings and experiences of the games that I spent in my childhood are symbolically presented.",
     "portfolio.hypocrisis": "Hypo-Crisis Series (2020–2024)",
-    "portfolio.hypocrisis.desc": "This series of paintings began in 2020 and was inspired by the daily life, architecture, socio-political and cultural events of our time and especially of my country.",
+  "portfolio.hypocrisis.desc": `
+What is Hypo-Crisis?
+Hypo-Crisis is a series of paintings started in 2020, soon coming to an end. This series features large canvases offering a clear and different vision of our contemporary reality. The works address themes inspired by daily life, architecture, as well as sociopolitical and cultural events of our time, especially those of my country.
+
+Through this series, I express my reflections on a better world and a more vigilant society towards everything that surrounds us. My works address philosophical subjects while remaining anchored in daily reality. In my paintings, I propose a different vision of the beauty and reality that surrounds me.
+
+As a painter, I also manifest my sublime pleasure for art through this work. I observe a crisis of ontological thought in individuals nowadays, but I believe there is always a path towards which man can direct his future. Art could serve as a bridge to lead humanity from our current society to a cathartic one.
+
+For this, we must reflect and find harmony between the space and time in which we live. When I paint, I feel neither space nor time, which allows me total freedom to transform my thoughts into images and create my paintings.
+`,
     
     // Biography
     "bio.title": "Biography",
@@ -104,7 +113,16 @@ const translations = {
     "portfolio.games": "Série Games (2019)",
     "portfolio.games.desc": "Ce cycle de peintures comprend 7 œuvres finales réalisées en technique de peinture à l'huile sur tissu, où des images, des sentiments et des expériences des jeux que j'ai passés dans mon enfance sont présentés symboliquement.",
     "portfolio.hypocrisis": "Série Hypo-Crisis (2020–2024)",
-    "portfolio.hypocrisis.desc": "Cette série de peintures a commencé en 2020 et s'inspire de la vie quotidienne, de l'architecture, des événements socio-politiques et culturels de notre époque et surtout de mon pays.",
+  "portfolio.hypocrisis.desc": `
+Qu’est-ce que Hypo-Crisis?
+Hypo-Crisis est une série de peintures commencée en 2020, qui touche bientôt à sa fin. Cette série présente de grands tableaux offrant une vision claire et différente de notre réalité contemporaine. Les œuvres abordent des thèmes inspirés de la vie quotidienne, de l'architecture, ainsi que des événements sociopolitiques et culturels de notre époque, en particulier ceux de mon pays.
+
+À travers cette série, j’exprime mes réflexions sur un monde meilleur et une société plus vigilante face à tout ce qui nous entoure. Mes œuvres abordent des sujets philosophiques tout en restant ancrées dans la réalité quotidienne. Dans mes tableaux, je propose une vision différente de la beauté et de la réalité qui m’entoure.
+
+En tant qu'artiste peintre, je manifeste également mon plaisir sublime pour l'art à travers ce travail. Je constate une crise de la pensée ontologique chez l’individu de nos jours, mais je crois qu'il existe toujours un chemin vers lequel l’homme peut orienter son futur. L’art pourrait servir de pont pour mener l’humanité de notre société actuelle à une société cathartique.
+
+Pour cela, nous devons réfléchir et trouver l’harmonie entre l’espace et le temps dans lesquels nous vivons. Lorsque je peins, je ne ressens ni l’espace ni le temps, ce qui me permet une liberté totale pour transformer mes pensées en images et créer mes tableaux.
+`,
     
     // Biography
     "bio.title": "Biographie",

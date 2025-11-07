@@ -10,21 +10,25 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<null | { success: boolean; message: string }>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // krijojmë mesazhin që do hapet në email
-    const subject = encodeURIComponent(`Message from ${formData.name}`);
-    const body = encodeURIComponent(
-      `From: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-
-    // hap direkt Gmail-in ose klientin e emailit të përdoruesit
-    window.location.href = `mailto:klajdipupa21@gmail.com?subject=${subject}&body=${body}`;
-
-    // pastrojmë fushat
-    setFormData({ name: "", email: "", message: "" });
+    setStatus(null);
+    try {
+  const response = await fetch("/api/contact-form-handler", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      const data = await response.json();
+      setStatus({ success: data.success, message: data.message });
+      if (data.success) {
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (err) {
+      setStatus({ success: false, message: "Failed to send message. Please try again later." });
+    }
   };
 
   return (
@@ -72,9 +76,21 @@ export default function Contact() {
               <h3 className="font-serif text-xl mb-4">
                 {t("contact.location")}
               </h3>
-              <p className="text-muted-foreground">
-                {t("contact.location.value")}
+              <p className="text-muted-foreground mb-4">
+                Tirana, Vasil Shanto
               </p>
+              <div className="rounded-md overflow-hidden w-full h-64">
+                <iframe
+                  title="Vasil Shanto Tirana Map"
+                  src="https://www.google.com/maps?q=41.3242,19.8082&z=16&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
           </div>
 
@@ -82,6 +98,11 @@ export default function Contact() {
           <div>
             <h2 className="font-serif text-2xl mb-8">{t("contact.form")}</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
+              {status && (
+                <div className={`rounded-md p-3 mb-2 text-center text-sm ${status.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  {status.message}
+                </div>
+              )}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   {t("contact.name")}

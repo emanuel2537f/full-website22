@@ -22,9 +22,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" data-testid="link-home">
-            <span className="font-serif text-2xl font-semibold tracking-wide cursor-pointer hover-elevate px-2 py-1 rounded-md transition-colors">
-              ALBI YZO
-            </span>
+              <div className="flex items-center gap-2">
+                <img src="/favicon.png" alt="Logo" className="h-8 w-8 object-contain mr-2" />
+                <span className="font-serif text-2xl font-semibold tracking-wide cursor-pointer hover-elevate px-2 py-1 rounded-md transition-colors">
+                  ALBI YZO
+                </span>
+              </div>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

@@ -103,13 +103,13 @@ export default function Exhibitions() {
                 data-testid={`exhibition-personal-${index}`}
               >
                 <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary" />
-                <div className="text-sm text-primary font-semibold mb-2" data-testid="text-exhibition-year">
+                <div className="text-xs text-primary font-semibold mb-1" data-testid="text-exhibition-year">
                   {exhibition.year}
                 </div>
-                <h3 className="font-serif text-xl mb-2" data-testid="text-exhibition-title">
+                <h3 className="font-serif text-lg mb-1" data-testid="text-exhibition-title">
                   {exhibition.title}
                 </h3>
-                <p className="text-muted-foreground" data-testid="text-exhibition-location">
+                <p className="text-sm text-muted-foreground" data-testid="text-exhibition-location">
                   {exhibition.location}
                 </p>
               </div>
@@ -129,13 +129,13 @@ export default function Exhibitions() {
                 data-testid={`exhibition-collective-${index}`}
               >
                 <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-muted" />
-                <div className="text-sm text-muted-foreground font-semibold mb-2" data-testid="text-exhibition-year">
+                <div className="text-xs text-muted-foreground font-semibold mb-1" data-testid="text-exhibition-year">
                   {exhibition.year}
                 </div>
-                <h3 className="font-serif text-xl mb-2" data-testid="text-exhibition-title">
+                <h3 className="font-serif text-lg mb-1" data-testid="text-exhibition-title">
                   {exhibition.title}
                 </h3>
-                <p className="text-muted-foreground" data-testid="text-exhibition-location">
+                <p className="text-sm text-muted-foreground" data-testid="text-exhibition-location">
                   {exhibition.location}
                 </p>
               </div>
