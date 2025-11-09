@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/LanguageContext";
 export default function Contact() {
   const { t } = useLanguage();
-  const [state, handleSubmit] = useForm("xvgdpwno");
+  const [state, handleSubmit] = useForm("xgvrwpwq");
 
   return (
     <div className="min-h-screen pt-32 pb-16">
@@ -35,17 +35,17 @@ export default function Contact() {
                 <Phone className="mt-1 text-primary" size={24} />
                 <div>
                   <p className="font-semibold mb-1">{t("contact.phone")}</p>
-                  <a href="tel:+355692222222" className="text-muted-foreground hover:text-foreground transition-colors">+355 69 222 2222</a>
+                  <a href="tel:+355692573658" className="text-muted-foreground hover:text-foreground transition-colors">+355 69 257 3658</a>
                 </div>
               </div>
               <div className="flex gap-4 mt-4">
-                <a href="https://www.facebook.com/albiyzo" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <a href="https://www.facebook.com/share/1A9RdNQSVg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <FaFacebook size={32} className="text-blue-600 hover:text-blue-800 transition-colors" />
                 </a>
-                <a href="https://www.instagram.com/albiyzo" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <a href="https://www.instagram.com/yzoalbi?igsh=ZWh1MnpoeWJicWZt" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <FaInstagram size={32} className="text-pink-500 hover:text-pink-700 transition-colors" />
                 </a>
-                <a href="https://www.linkedin.com/in/albiyzo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/albi-yzo-243923175?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <FaLinkedin size={32} className="text-blue-700 hover:text-blue-900 transition-colors" />
                 </a>
               </div>
@@ -105,7 +105,7 @@ export default function Contact() {
                 Send Message
               </Button>
               {state.succeeded && (
-                <p className="text-green-600 mt-4">Mesazhi u dërgua me sukses!</p>
+                <p className="text-green-600 mt-4">The message was sent successfully!</p>
               )}
             </form>
           </div>
