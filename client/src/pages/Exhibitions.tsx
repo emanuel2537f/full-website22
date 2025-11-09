@@ -4,6 +4,27 @@ export default function Exhibitions() {
   const { t } = useLanguage();
   const personalExhibitions = [
     {
+      year: "2024",
+      title: "Hypo-Crisis",
+      location: "Espace ContreContre, St-Maurice, Switzerland, CH",
+    },
+    {
+      year: "2017",
+      title: "Mythe of love",
+      location: "YeReBlu Art Studio, Tiranë, AL",
+    },
+    {
+      year: "2014",
+      title: "Exposition, Journéé de Patrimoine",
+      location: "Metz, FR",
+    },
+    {
+      year: "2011",
+      title: "Exhibition Nr 1",
+      location: "Tefta Tashko Koço School, Korçë, AL",
+    },
+    // ...ekspozitat ekzistuese
+    {
       year: "2017",
       title: "Mythe of love",
       location: "YeReBlu Art Studio, Tirana, Albania",

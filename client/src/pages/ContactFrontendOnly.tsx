@@ -1,11 +1,23 @@
+import { useState } from "react";
 import { Mail, Phone } from "lucide-react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { useForm, ValidationError } from '@formspree/react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/LanguageContext";
-export default function Contact() {
+
+export default function ContactFrontendOnly() {
   const { t } = useLanguage();
-  const [state, handleSubmit] = useForm("xvgdpwno");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<null | { success: boolean; message: string }>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ success: true, message: "Mesazhi nuk dërgohet, kjo formë është vetëm për demonstrim!" });
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   return (
     <div className="min-h-screen pt-32 pb-16">
@@ -16,6 +28,7 @@ export default function Contact() {
         <p className="text-center text-muted-foreground mb-20 text-lg">
           {t("contact.subtitle")}
         </p>
+
         <div className="grid md:grid-cols-2 gap-12">
           {/* Kontakt info */}
           <div>
@@ -75,54 +88,71 @@ export default function Contact() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                />
+                ></iframe>
               </div>
             </div>
           </div>
-          {/* Forma me Formspree */}
+
+          {/* Forma vetëm frontend */}
           <div>
             <h2 className="font-serif text-2xl mb-8">{t("contact.form")}</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
+              {status && (
+                <div className={`rounded-md p-3 mb-2 text-center text-sm ${status.success ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'}`}>
+                  {status.message}
+                </div>
+              )}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  {t("contact.name")}
+                </label>
                 <input
-                  id="name"
                   type="text"
-                  name="name"
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+                  placeholder={t("contact.name.placeholder")}
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background"
-                  placeholder="Your name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  {t("contact.email")}
+                </label>
                 <input
-                  id="email"
                   type="email"
-                  name="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+                  placeholder={t("contact.email.placeholder")}
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background"
-                  placeholder="your.email@example.com"
                 />
-                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  {t("contact.message")}
+                </label>
                 <textarea
                   id="message"
-                  name="message"
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  rows={6}
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow resize-none"
+                  placeholder={t("contact.message.placeholder")}
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background"
-                  placeholder="Your message..."
                 />
-                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
-              <Button type="submit" disabled={state.submitting} className="w-full bg-blue-300 text-black py-3 rounded-md">
-                Send Message
+              <Button type="submit" className="w-full">
+                {t("contact.submit")}
               </Button>
-              {state.succeeded && (
-                <p className="text-green-600 mt-4">The message was sent successfully!</p>
-              )}
             </form>
           </div>
         </div>
@@ -130,4 +160,3 @@ export default function Contact() {
     </div>
   );
 }
-
