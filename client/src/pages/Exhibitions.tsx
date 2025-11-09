@@ -23,22 +23,7 @@ export default function Exhibitions() {
       title: "Exhibition Nr 1",
       location: "Tefta Tashko Koço School, Korçë, AL",
     },
-    // ...ekspozitat ekzistuese
-    {
-      year: "2017",
-      title: "Mythe of love",
-      location: "YeReBlu Art Studio, Tirana, Albania",
-    },
-    {
-      year: "2014",
-      title: "Exposition, Journée de Patrimoine",
-      location: "Metz, France",
-    },
-    {
-      year: "2011",
-      title: "Exhibition Nr 1",
-      location: "Tefta Tashko Koço School, Korçë, Albania",
-    },
+
   ];
 
   const collectiveExhibitions = [

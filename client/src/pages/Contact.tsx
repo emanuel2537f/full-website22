@@ -51,14 +51,14 @@ export default function Contact() {
               </div>
               <div className="mt-8">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.0000000000005!2d19.818000000000003!3d41.32750000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1350310c0c0c0c0c%3A0x0c0c0c0c0c0c0c0c!2sTirana!5e0!3m2!1sen!2s!4v1660000000000!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.9649649649647!2d19.813800000000003!3d41.32790000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1350310c0c0c0c0c%3A0x0c0c0c0c0c0c0c0c!2sVasil%20Shanto%2C%20Tirana!5e0!3m2!1sen!2s!4v1660000000000!5m2!1sen!2s"
                   width="100%"
                   height="250"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Location Map"
+                  title="Vasil Shanto Location"
                 />
               </div>
             </div>
