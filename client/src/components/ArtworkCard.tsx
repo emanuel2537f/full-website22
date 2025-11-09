@@ -22,7 +22,7 @@ export default function ArtworkCard({
       <div className="relative overflow-hidden rounded-md bg-card mb-4 aspect-[3/4]">
         <img
           src={imageSrc}
-          alt={title}
+          alt={`Artwork by Albi Yzo, artist in Tirana – ${title}`}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
