@@ -1,0 +1,15 @@
+[build]
+  functions = "netlify/functions"
+  publish = "dist/public"
+
+# Optional: Redirect API calls to Netlify Functions
+[[redirects]]
+  from = "/api/contact-form-handler"
+  to = "/.netlify/functions/contact-form-handler"
+  status = 200
+
+# Redirect all routes to index.html for SPA support
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,162 @@
+import { useState } from "react";
+import { Mail, Phone } from "lucide-react";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/lib/LanguageContext";
+
+export default function ContactFrontendOnly() {
+  const { t } = useLanguage();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<null | { success: boolean; message: string }>(null);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus({ success: true, message: "Mesazhi nuk dërgohet, kjo formë është vetëm për demonstrim!" });
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  return (
+    <div className="min-h-screen pt-32 pb-16">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        <h1 className="font-serif text-5xl md:text-6xl font-light mb-4 text-center">
+          {t("contact.title")}
+        </h1>
+        <p className="text-center text-muted-foreground mb-20 text-lg">
+          {t("contact.subtitle")}
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Kontakt info */}
+          <div>
+            <h2 className="font-serif text-2xl mb-8">{t("contact.info")}</h2>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <Mail className="mt-1 text-primary" size={24} />
+                <div>
+                  <p className="font-semibold mb-1">{t("contact.email")}</p>
+                  <a
+                    href="mailto:albiyzo@gmail.com"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    albiyzo@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Phone className="mt-1 text-primary" size={24} />
+                <div>
+                  <p className="font-semibold mb-1">{t("contact.phone")}</p>
+                  <a
+                    href="tel:+355692573658"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    +355 69 25 73 658
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* Social links */}
+            <div className="flex gap-6 mt-8">
+              <a href="https://www.facebook.com/yzoalbi/?locale=sq_AL" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <FaFacebook size={28} className="text-blue-600 hover:text-blue-800 transition-colors" />
+              </a>
+              <a href="https://www.instagram.com/yzoalbi/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <FaInstagram size={28} className="text-pink-500 hover:text-pink-700 transition-colors" />
+              </a>
+              <a href="https://al.linkedin.com/in/albi-yzo-243923175" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <FaLinkedin size={28} className="text-blue-700 hover:text-blue-900 transition-colors" />
+              </a>
+            </div>
+            <div className="mt-12 bg-muted/30 rounded-md p-8">
+              <h3 className="font-serif text-xl mb-4">
+                {t("contact.location")}
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                Tirana, Vasil Shanto
+              </p>
+              <div className="rounded-md overflow-hidden w-full h-64">
+                <iframe
+                  title="Vasil Shanto Tirana Map"
+                  src="https://www.google.com/maps?q=41.3242,19.8082&z=16&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
+          {/* Forma vetëm frontend */}
+          <div>
+            <h2 className="font-serif text-2xl mb-8">{t("contact.form")}</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {status && (
+                <div className={`rounded-md p-3 mb-2 text-center text-sm ${status.success ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'}`}>
+                  {status.message}
+                </div>
+              )}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  {t("contact.name")}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+                  placeholder={t("contact.name.placeholder")}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  {t("contact.email")}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+                  placeholder={t("contact.email.placeholder")}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  {t("contact.message")}
+                </label>
+                <textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  rows={6}
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring transition-shadow resize-none"
+                  placeholder={t("contact.message.placeholder")}
+                  required
+                />
+              </div>
+              <Button type="submit" className="w-full">
+                {t("contact.submit")}
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

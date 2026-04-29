@@ -1,0 +1,151 @@
+Build a React (Vite) front-end only project based on the attached PDF titled "Albi Yzo – Portfolio 2024".
+The goal is to create a modern, responsive portfolio website for the visual artist Albi Yzo, using React + CSS (no backend, no frameworks like Bootstrap or Material UI).
+
+🧩 Project Structure
+
+Create the following React components and pages inside a src folder:
+
+App.jsx – Router and navigation setup
+
+components/Navbar.jsx – Navigation bar
+
+components/Footer.jsx – Footer
+
+pages/Home.jsx – Landing page with artist intro and hero section
+
+pages/Portfolio.jsx – Gallery of artworks
+
+pages/Biography.jsx – Biography and artist statement
+
+pages/Exhibitions.jsx – List of personal and collective exhibitions
+
+pages/Contact.jsx – Contact info and visual form (no backend)
+
+Use React Router v6 for page navigation.
+
+🎨 Design Guidelines
+
+Color palette:
+
+Background: #FFFFFF
+
+Text: #111111
+
+Accent: #B3C7E6 (soft blue) or #E8E6D9 (light beige)
+
+Fonts:
+
+Titles: "Playfair Display" or "EB Garamond"
+
+Body text: "Lato" or "Inter"
+
+Layout:
+
+Use CSS Grid or Flexbox
+
+Clean margins and large spacing like an art exhibition catalog
+
+Effects:
+
+Fade-in animations when scrolling
+
+Hover zoom on artworks
+
+Lightbox image viewer for artworks (React-only, no libraries required)
+
+Responsiveness:
+
+Fully responsive on desktop, tablet, and mobile
+
+🖼️ Page Details
+🏠 Home.jsx
+
+Full-screen hero section with:
+
+Text: “ALBI YZO”
+
+Subtitle: “Visual Artist – Tirana, Albania”
+
+Background image (placeholder or abstract gradient)
+
+Quote section:
+
+“To create in our contemporary era means to preserve the essence of oneself.”
+
+🎨 Portfolio.jsx
+
+Gallery view of artworks from the PDF.
+
+Divide into sections:
+
+School Period (2012–2014)
+
+Games Series (2019)
+
+Hypo-Crisis Series (2020–2024)
+
+Each artwork card should have:
+
+Title
+
+Year
+
+Technique and dimensions
+
+Placeholder image (use /images/placeholder.jpg if no image provided).
+
+👨‍🎨 Biography.jsx
+
+Use text from the PDF’s bio section:
+
+“Born in Korçë, 1993 — Lives and works in Tirana.”
+
+“MA in Visual Arts, University of Arts, Tirana, 2022.”
+
+Add the artist’s statement (last page of PDF).
+
+Include a profile image placeholder.
+
+🖼️ Exhibitions.jsx
+
+Two sections:
+
+Personal Exhibitions (Selected)
+
+Collective Exhibitions (Selected)
+
+Use cards or timeline layout with year, title, and location.
+
+✉️ Contact.jsx
+
+Show contact info:
+
+Email: albiyzo@gmail.com
+
+Phone: +355 69 25 73 658
+
+Add a simple form with Name, Email, Message (no functionality, just visual).
+
+Include social icons or links (optional).
+
+Footer:
+
+© 2024 Albi Yzo | Designed by EAI DEV
+
+⚙️ Technical Notes
+
+Use Vite + React (npm create vite@latest albi-portfolio --template react).
+
+Do not include backend or external database.
+
+Only use React, React Router, and CSS.
+
+Organize assets in /public/images.
+
+Ensure all text content is extracted from the PDF accurately.
+
+Deploy-ready design (can be hosted on Netlify, Vercel, or Replit).
+
+🎯 Goal
+
+Produce a React front-end portfolio website that visually translates Albi Yzo’s artworks, philosophy, and exhibitions into a professional online presentation — resembling a minimalist art gallery.
